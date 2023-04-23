@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House prediction System</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        body {
+            padding: 0px;
+            margin: 0px;
+            background: #050f2c;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            height: 200%;
+
+
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+
+            background: linear-gradient(#3EDBF0, #04009A);
+            clip-path: circle(40% at 70% 0%);
+            opacity: 0.5;
+
+        }
+
+        body::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.4;
+
+            background: linear-gradient(#77ACF1, #77ACF1);
+            clip-path: circle(30% at 0% 90%);
+
+        }
+
+        nav {
+            position: absolute;
+            display: flex;
+            top: 7px;
+            left: 0;
+            right: 0;
+
+
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            height: 19px;
+
+            margin-top: 20px;
+        }
+
+        nav ul li a {
+            padding: 45px;
+            font-size: 25px;
+            height: 10px;
+        }
+
+        li a:hover {
+            color: #b6b6b8;
+            cursor: pointer;
+        }
+
+        .section {
+            position: absolute;
+            top: 920px;
+            justify-content: center;
+            text-align: center;
+            /* border: 2px solid green; */
+
+
+        }
+
+        .section h1 {
+            font-size: 50px;
+
+        }
+
+
+        .bg10 {
+            position: absolute;
+
+            top: 150px;
+
+        }
+
+        .bg10 img {
+            width: 650px;
+            margin-top: 4px;
+            margin-bottom: 23px;
+        }
+
+        .section p {
+            font-size: 22px;
+        }
+
+        .container {
+            top: 1300px;
+            position: absolute;
+            display: flex;
+            /* border: 2px solid white; */
+            padding: 23px;
+            background: #272431;
+            border: 0.2px solid rgb(78, 73, 73);
+            box-shadow: 9px 9px 3px 6px rgb(41, 39, 52);
+            border-radius: 18px;
+        }
+
+        .img {
+            display: inline;
+        }
+
+        .hpp h2 {
+            font-size: 35px;
+        }
+
+        .hpp p {
+            font-size: 17px;
+
+        }
+
+        .hpp {}
+
+        .box {
+            border: 2px solid rgb(47, 44, 62);
+            border-radius: 20px;
+            /* box-shadow: 10px 10px  rgb(41, 39, 52); */
+            box-shadow: 7px 7px 7px 10px rgb(41, 39, 52);
+        }
+
+        .service-container {
+            position: absolute;
+            top: 750px;
+        }
+
+        .howit h1 {
+            font-size: 20PX;
+            margin: auto;
+
+
+
+
+        }
+
+        .services {
+            display: flex;
+
+            margin-left: -12px;
+        }
+
+        .box {
+            justify-content: center;
+            padding: 25px;
+
+        }
+
+        #box1 {
+            justify-content: center;
+        }
+
+        #box1 img {
+            width: 120px;
+            justify-content: center;
+            text-align: center;
+
+
+        }
+
+        .service-container h1 {
+            font-size: 40px;
+
+        }
+
+        .service-container {
+            justify-content: center;
+            text-align: center;
+            margin-left: -10px;
+
+        }
+
+        #box2 img {
+            width: 120px;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        #box3 img {
+            width: 130px;
+            justify-content: center;
+            text-align: center;
+
+        }
+
+        .box {
+            width: 300px;
+            height: 430px;
+            margin: 55px;
+            margin-left: -8px;
+        }
+
+        #box2 h2 {
+            margin-top: 15px;
+
+        }
+
+        #box3 h2 {
+            margin-top: 33px;
+
+
+        }
+
+        .img img {
+            margin-top: 2px;
+            width: 360px;
+            position: relative;
+            left: 0px;
+            animation: move-left 7s linear forwards, move-right 7s linear forwards;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes move-left {
+            from {
+                left: 0;
+
+            }
+
+            to {
+                left: -200px;
+            }
+        }
+
+        @keyframes move-right {
+            from {
+                left: -200;
+
+            }
+
+            to {
+                left: 0;
+            }
+        }
+
+        #box1,
+        #box2,
+        #box3 {
+            background: #272431;
+            border: 1px solid rgb(78, 73, 73);
+        }
+
+        .box {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .box:hover {
+            transform: scale(1.4);
+
+        }
+
+        .container2 {
+            position: absolute;
+            top: 3000px;
+            display: flex;
+            /* border: 2px solid rgb(251, 251, 252); */
+            justify-content: center;
+            text-align: center;
+            border-radius: 30px;
+            background: #272431;
+            border: 1px solid rgb(78, 73, 73);
+            box-shadow: -7px -7px 7px rgb(41, 39, 52);
+            width: 70%;
+        }
+
+        .feature {
+            margin-left: 50px;
+            margin-top: 50px;
+            padding: 20px 20px;
+
+
+        }
+
+        .feature h2 {
+            font-size: 40px;
+        }
+
+        .feature h3 {
+            font-size: 24px;
+        }
+
+        .feature p {
+            font-size: 17px;
+        }
+
+        .image2 img {
+            margin-top: 2px;
+            width: 400px;
+            position: relative;
+            left: 0px;
+            animation: move-left 7s linear forwards, move-right 7s linear forwards;
+            animation-iteration-count: infinite;
+        }
+
+        .container3 {
+            position: absolute;
+            top: 3500px;
+
+            /* border: 2px solid greenyellow; */
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            height: 700px;
+
+        }
+
+        .card {
+            width: 1100px;
+            height: 650px;
+            border-radius: 30px;
+            border: 2px solid rgb(60, 60, 60);
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: #272431;
+            box-shadow: 7px 7px 7px rgb(41, 39, 52);
+
+        }
+
+        .card-body {
+            /* display: flex; */
+        }
+
+        .in {
+            /* display: flex; */
+            margin: 23px 80px;
+        }
+
+        .out {
+            /* display: flex; */
+        }
+
+        .row {
+            margin-top: 27px;
+
+        }
+
+        .row label {
+            font-size: 20px;
+
+        }
+
+        .rowin {
+            display: flex;
+
+        }
+
+        .inside {
+            margin-left: 17px;
+            margin-top: 25px;
+        }
+
+        .out {
+            margin-left: 90px;
+        }
+
+        .card-body input {
+            width: 400px;
+            height: 30px;
+            border-radius: 10px;
+        }
+
+        select {
+            height: 28px;
+            border-radius: 10px;
+        }
+
+        .row2 {
+            margin-top: 40px;
+
+        }
+
+        .row2 button {
+            border-radius: 26px;
+            width: 130px;
+            height: 33px;
+            font-size: 14px;
+            background: rgb(13, 101, 224);
+            color: white;
+
+        }
+
+        .sq {
+            margin-left: -70px;
+        }
+
+        .row2 button:hover {
+            color: rgb(13, 101, 224);
+            background: white;
+        }
+
+        .pred {
+            position: absolute;
+            top: 4050px;
+
+        }
+
+        ul li a:hover {
+            border: 2px solid white;
+            height: 0px;
+            border-radius: 200px;
+        }
+        .out1{
+            margin-left: 240px;
+            margin-top: 20px;
+        }
+        .out2{
+            margin-top: 30px;
+        }
+        .pred span{
+            font-size: 29px;
+        }
+       
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a>Home</a></li>
+                <li><a>Services</a></li>
+                <li><a>About Us</a></li>
+                <li><a>Contact Us</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    <div class="bg10">
+        <img src="{{ url_for('static', filename='Bg6.png')}}" alt="" srcset="">
+    </div>
+
+
+
+    <section class="section">
+        <h1 class="se">Welcome to House Prediction System</h1>
+        <br>
+        <p>A ML model For House price Prediction</p>
+    </section>
+    <div class="container">
+        <div class="hpp">
+            <br>
+            <br>
+            <br>
+            <br>
+
+
+            <h2>What is HPP?</h2>
+            <br>
+            <p>In house prediction based on certain features of the house, such as the area<br> square feet, number of
+                bedrooms, number of bathrooms, number of floors,
+                year <br>of bulit, we have to predict the estimated price of the house.
+                <br>
+                <br>
+                Prediction house prices are expected to help people who plan to buy a house so <br>they can know the
+                price range in the future, then they can plan their
+                finance well.<br>In addition, house price predictions are also beneficial for property investors to<br>
+                know the trend of housing prices in a certain location.
+            </p>
+
+        </div>
+
+        <div class="img">
+            <img src="{{ url_for('static', filename='Bg3.png')}}" alt="" srcset="">
+
+        </div>
+
+        <section class="service-container">
+            <h1 class="howit">How it works!</h1>
+            <br>
+
+            <div class="services">
+                <div class="box" id="box1">
+                    <img src="{{ url_for('static', filename='logo1.png')}}" alt="" srcset="">
+                    <h2 class="first">Collecting the data</h2>
+                    <br>
+                    <p>first step was to collect the data the kaggle app which helps us bto create the data set for our
+                        MLmodel. We will perform some
+                        extensive data cleaning work on it to ensure that it gives accurate results during prediction.
+                    </p>
+                </div>
+                <div class="box" id="box2">
+                    <img src="{{ url_for('static', filename='bogo2-.png')}}" alt="" srcset="">
+                    <h2 class="first">Data Analysis</h2>
+                    <br>
+                    <p>Our dataset requires a lot of work in terms of data cleaning. Infact, 70% of the notebook is all
+                        about data cleaning where we drop empty rows and remove unnecessary columns that won't help in
+                        prediction which is also called an outlier.</p>
+                </div>
+                <div class="box" id="box3">
+                    <img src="{{ url_for('static', filename='bogo3.png')}}" alt="" srcset="">
+                    <h2 class="first">Trained Model</h2>
+                    <br>
+                    <p>After removing Outliers, Null Values and white space, turns out the ridge model gives the best
+                        results for our data with a score above 80% which is not bad. We extracting useful and important
+                        information from the dataset and dumped it in "RidgeModel.pk" which will help us to predict the
+                        price successfully.</p>
+
+
+                </div>
+
+
+            </div>
+        </section>
+    </div>
+    <div class="container2">
+        <div class="image2">
+            <img src="{{ url_for('static', filename='logo7.png')}}" alt="" srcset="">
+
+        </div>
+        <div class="feature">
+            <h2>Which feature We Use?</h2>
+            <br>
+            <h3>location Wise-</h3>
+            <p>Area Wise Fetch house according to your need</p>
+            <br>
+            <h3>Bedroom Wise-</h3>
+            <p>How many Bedroom any house have which are in our data</p>
+            <br>
+            <h3>Bathroom Wise-</h3>
+            <p>How many Bathroom house have which are in our data</p>
+            <br>
+            <h3>Square foot Wise-</h3>
+            <p>Accoridng area of square foot your selected house had</p>
+
+        </div>
+    </div>
+    <div class="container3">
+        <div class="row">
+            <div class="card">
+                <div class="card-head">
+                    <h1><b style="font-size: 45px;">Mumbai House Price Prediction</b></h1>
+                </div>
+                <br>
+                <br>
+                <h3>Want to predict the price of the house in Mumbai? Fill the following details below!</h3>
+
+                <div class="card-body">
+                    <div class="row">
+                        <form accept-charset="utf-8" method="post">
+
+                            <div class="in">
+
+                                <div class="rowin">
+                                    <div class="inside">
+
+                                        <label for="">Select the location:</label>
+                                        <br>
+                                        <select style=width:400px id="location" name="location">
+                                            {% for location in locations %}
+                                            <option value="{{ location }}">{{ location }}</option>
+                                            {% endfor %}
+
+                                        </select>
+
+                                    </div>
+                                    <div class="inside">
+
+                                        <label for="">Enter the number of bedrooms:</label>
+                                        <br>
+                                        <input type="text" name="bedrooms" id="bedrooms" value="" placeholder="Enter the BHK">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="rowin">
+                                <div class="out">
+                                    <label for="">Enter the number of bathrooms:</label>
+                                    <br>
+                                    <input type="text" name="Bathrooms" id="Bathrooms" value=""
+                                        placeholder="Enter Numebr of Bathrooms">
+                                </div>
+                                <div class="out">
+                                    <div class="sq">
+
+                                        <label for="">Enter Square feet:</label>
+                                        </br>
+                                        <input type="text" name="squarefeet" id="squarefeet" value=""
+                                            placeholder="Enter Square feet">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="rowin">
+                                <div class="out1">
+                                    <label for="">Enter house is new or old:</label>
+                                    <br>
+                                   <select name="neworold" id="neworold">
+                                    <option value="Resale">Resale</option>
+                                    <option value="New Property">New Property</option>
+                                   </select>
+                                </div>
+                                <div class="out1">
+                                    <div class="sq">
+
+                                        <label for="">Enter type of building:</label>
+                                        </br>
+                                        <select name="typeofb" id="typeofb">
+                                            <option value="Flat">Flat</option>
+                                            <option value="Individual House">Individual House</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row2">
+                                <button onclick="send_data()">Predict Price</button>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    </form>
+    <br>
+    <div class="pred">
+        <h3><span id="prediction"> </span></h3>
+    </div>
+
+
+    <script>
+
+        function form_handler(event) {
+            // console.log("submit clicked..")
+            event.preventDefault();
+        }
+        function send_data() {
+            document.querySelector('form').addEventListener("submit", form_handler);
+
+            var fd = new FormData(document.querySelector('form'));
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('POST', '/predict', true);
+
+            document.getElementById("prediction").innerHTML = "Wait Predicting Pice...!";
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    document.getElementById('prediction').innerHTML = "Estimated Price is : Rs " + xhr.responseText;
+                }
+            };
+
+            xhr.onload = function () {};
+            xhr.send(fd);
+        }
+    </script>
+</body>
+
+</htm>
